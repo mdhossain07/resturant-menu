@@ -6,14 +6,13 @@ import Menu from './Menu';
 
 function App() {
 
-  const newCategories = ['all',...new Set(items.map(item => item.category))];
-  console.log(newCategories);
+  const newCategories = ['All',...new Set(items.map(item => item.category))];
 
   const [menu, setMenu] = useState(items);
   const [categories, setCategoris] = useState([]);
 
   const filterItems = (category) => {
-    if (category === 'all') {
+    if (category === 'All') {
       setMenu(items);
       return;
     }
@@ -24,6 +23,7 @@ function App() {
   return (
     <main>
       <h2 className='main-title'> Our Menu </h2>
+      <div className='underline'></div>
       <Categories newCategories = {newCategories} filterItems = {filterItems}/>
       <Menu items = {menu}/>
     </main>
